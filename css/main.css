@@ -1,0 +1,118 @@
+.wrapper {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .tab {
+    margin: 30px 0 10px 25px;
+    height: 35px;
+    width: 120px;
+    outline: none;
+    color: white;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-color: #FDBE33 #000 #D77206;
+    border-radius: 6px;
+    background: linear-gradient(#F3AE0F, #E38916) #E38916;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.wrapper .tab:active {
+    background: linear-gradient(#f59500, #f5ae00) #f59500;
+}
+
+.wrapper .tabs-content {
+    width: 420px;
+    display: none;
+    margin-left: 25px;
+}
+
+.wrapper .accordion {
+    width: 410px;
+    cursor: pointer;
+    padding: 10px 0 10px 10px;
+    text-align: left;
+    outline: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border-bottom: 1px solid white;
+}
+
+.wrapper .tabs-content .accordion .panel {
+    margin: 0;
+    font-size: 16px;
+    cursor: auto;
+    padding: 10px 0 10px 0;
+    font-weight: normal;
+}
+
+.wrapper .accordion-btn {
+    height: 40px;
+    width: 120px;
+    border-radius: 15px;
+    border: 2px solid #8A8888;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+    outline: none;
+    background: lightblue;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.wrapper .accordion-btn:active {
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3), 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.wrapper .accordion-margin {
+    margin: 8px 0;
+    border-radius: 10px;
+    transition: margin 0.3s ease-in-out;
+}
+
+.wrapper .theme {
+    color: black;
+    background: #D6D7D5;
+}
+
+.changeTheme {
+    background: #603333;
+    color: white;
+}
+
+.wrapper .active-btn {
+    border-bottom: 2px solid black;
+    transition:  0.4s;
+}
+
+.wrapper .show {
+    display: block;
+}
+
+.wrapper .hide {
+    display: none;
+}
+
+.up:before {
+    content: '▲';
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    font-size: 15px;
+}
+
+.down:before {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    font-size: 15px;
+}
+
+.down:hover:before {
+    font-size: 18px;
+}
+
+
+
+
