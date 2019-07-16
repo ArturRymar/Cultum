@@ -104,18 +104,28 @@ const array = [
 ];
 
 function taskOne(arr) {
-    return [] = arr.map((elem) => {
+    return arr.map((elem) => {
         elem.height = +elem.height;   // Change type of height and mass
         elem.mass = +elem.mass;
-        elem['label'] = elem['name']; //Change name on label
-        delete elem['name'];
-        return Object.keys(elem).reduce((result, key) => {   //Remove slash
+        const {name, ...rest} = elem;
+        return Object.keys(rest).reduce((result, key) => {  //Remove slash and change 'name' on 'label'
             if (key.includes('_')) {
-                return {...result, [key.split('_').join('')] : elem[key]};
+                return {...result, [key.split('_').join('')]: rest[key]};
             } else {
-                return {...result, [key] : elem[key]};
+                return {...result, [key]: rest[key]};
             }
-        }, {})
+        }, {label: name});
     });
 }
+
 console.log(taskOne(array));
+
+function taskTwo(arr, gender) {   //Function for filter array
+    return arr.filter((elem) => {
+            if(elem['gender'] === gender) return true;
+        }
+    )
+}
+
+console.log(taskTwo(array, 'male'));
+
