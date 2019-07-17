@@ -120,12 +120,38 @@ function taskOne(arr) {
 
 console.log(taskOne(array));
 
-function taskTwo(arr, gender) {   //Function for filter array
-    return arr.filter((elem) => {
-            if(elem['gender'] === gender) return true;
-        }
-    )
+function taskTwo(arr, gender) {                          //Function for filter array
+    return arr.filter(elem => elem['gender'] === gender);
 }
 
 console.log(taskTwo(array, 'male'));
+
+const object = {
+    "name":"some name",
+    "height":"182",
+    "mass":"77",
+    "hair_color":"black",
+    "skin_color":"red",
+    "eye_color":"brown",
+    "birth_year":"XXXXXX",
+    "gender":"female"
+};
+
+function taskThree(arr,obj) {                 //Function for add obj
+    return arr.concat(arr.splice(2, 0, obj));
+}
+
+console.log(taskThree(array,object));
+
+
+
+
+
+
+
+// let b = [1,2,3];
+// let a = b.concat(b.splice(1, 1, object));
+// console.log(a)
+
+
 
