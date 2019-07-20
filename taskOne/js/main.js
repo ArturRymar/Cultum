@@ -103,29 +103,6 @@ const array = [
     }
 ];
 
-function taskOne(arr) {
-    return arr.map((elem) => {
-        elem.height = +elem.height;   // Change type of height and mass
-        elem.mass = +elem.mass;
-        const {name, ...rest} = elem;
-        return Object.keys(rest).reduce((result, key) => {  //Remove slash and change 'name' on 'label'
-            if (key.includes('_')) {
-                return {...result, [key.split('_').join('')]: rest[key]};
-            } else {
-                return {...result, [key]: rest[key]};
-            }
-        }, {label: name});
-    });
-}
-
-console.log(taskOne(array));
-
-function taskTwo(arr, gender) {                          //Function for filter array
-    return arr.filter(elem => elem['gender'] === gender);
-}
-
-console.log(taskTwo(array, 'male'));
-
 const object = {
     "name":"some name",
     "height":"182",
@@ -137,21 +114,88 @@ const object = {
     "gender":"female"
 };
 
-function taskThree(arr,obj) {                 //Function for add obj
-    return arr.concat(arr.splice(2, 0, obj));
+function task1(arr) {             //Remove slash and change 'name' on 'label', type of height and mass
+    return arr.map((elem) => {
+        const {name,height,mass,...rest} = elem;
+        return Object.keys(rest).reduce((result, key) => {
+            return key.includes('_') ?
+                {...result, [key.split('_').join('')]: rest[key]} :
+                {...result, [key]: rest[key]}
+        }, {label: name, height: +height, mass : +mass});
+    });
 }
 
-console.log(taskThree(array,object));
+console.log(task1(array));
 
+function task2(arr, gender) {                          //Function for filter array
+    return arr.filter(elem => elem.gender === gender);
+}
 
+console.log(task2(array, 'male'));
 
+function task3(arr,obj) {                              //Function for add object
+   return [...arr.slice(0,2),obj,...arr.slice(2)];
+}
 
+console.log(task3(array,object));
 
+function task4(arr, name) {                            //Function for search object
+    return arr.find( elem => elem.name === name) || 'Not found';
+}
 
+console.log(task4(array,'R2-D2'));
 
-// let b = [1,2,3];
-// let a = b.concat(b.splice(1, 1, object));
-// console.log(a)
+function task5(arr, gender) {                           //Function for filter from index 2
+    return arr.slice(2).filter(elem => elem.gender === gender);
+}
 
+console.log(task5(array,'female'));
 
+function task6(arr) {                                  //Function for return arr with three elements
+    return arr.slice(2,5);
+}
 
+console.log(task6(array));
+
+function task7(arr, height) {                          //Function for filter on 'height'
+    return arr.filter(elem => elem.height !== height)
+}
+
+console.log(task7(array,'172'));
+
+function task8(arr, skin_color) {                       //Function for search object ( return true/false)
+    return arr.some(elem => elem.skin_color === skin_color);
+}
+
+console.log(task8(array,'white'));
+
+function task9(arr) {                                  //Function for unification arrays
+    return arr.concat([1,2,3,4,5]);
+}
+console.log(task9(array));
+
+function task10(arr) {                                 //Function for sort on 'mass'
+    return arr.map( elem => Number.parseInt(elem.mass)).sort((a, b) => a - b);
+}
+
+console.log(task10(array));
+
+function task11(arr) {                                 //Function for unification array[obj] values in string
+    return arr.map( elem => Object.values(elem).join('; '));
+}
+
+console.log(task11(array));
+
+function task12(arr) {                                  //Function for sort on number values of array[obj]
+    return arr.map( elem => Number.parseInt(elem.height) + Number.parseInt(elem.mass)).sort((a, b) => b - a);
+}
+
+console.log(task12(array));
+
+function task13(arr) {                                  //Return array of arr[obj] values in array
+    return arr.map( elem => Object.values(elem));
+}
+
+console.log(task13(array));
+
+console.log(array); //Check on mutate
