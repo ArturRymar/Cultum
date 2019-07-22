@@ -158,7 +158,7 @@ function task6(arr) {                                  //Function for return arr
 console.log(task6(array));
 
 function task7(arr, height) {                          //Function for filter on 'height'
-    return arr.filter(elem => elem.height !== height)
+    return arr.filter(elem => Number.parseInt(elem.height) !== Number.parseInt(height));
 }
 
 console.log(task7(array,'172'));
